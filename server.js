@@ -6,7 +6,9 @@ const io = require('socket.io')(server, {
 })
 
 io.on('connection', client => {
-    console.log(client.id)
+    client.on('hello', (data) => {
+        console.log(data)
+    })
 });
 
 server.listen(3000, () => {
