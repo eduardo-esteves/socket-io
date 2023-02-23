@@ -6,8 +6,9 @@ const io = require('socket.io')(server, {
 })
 
 io.on('connection', client => {
-    client.on('hello', (data) => {
+    client.on('login', (data) => {
         console.log(data)
+        client.broadcast.emit('loggedIn', data)
     })
 });
 
